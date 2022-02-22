@@ -76,3 +76,52 @@ function getComputerMove() {
       return "lizard";
   }
 }
+
+// With this function the computer has 90% of probability to win
+// for each player's move the computer has different winning moves
+// 'otherMoves' includes the draw and lose options
+function getComputerMoveNinety(playerMove) {
+  let plays = [
+    (rock = {
+      moveName: "rock",
+      winningMoves: ["paper", "spock"],
+      otherMoves: ["rock", "scissors", "lizard"], // draw + loses
+    }),
+    (paper = {
+      moveName: "paper",
+      winningMoves: ["lizard", "scissors"],
+      otherMoves: ["paper", "rock", "spock"], // draw + loses
+    }),
+    (scissors = {
+      moveName: "scissors",
+      winningMoves: ["rock", "spock"],
+      otherMoves: ["scissors", "lizard", "paper"], // draw + loses
+    }),
+    (spock = {
+      moveName: "spock",
+      winningMoves: ["paper", "lizard"],
+      otherMoves: ["spock", "rock", "scissors"], // draw + loses
+    }),
+    (lizard = {
+      moveName: "lizard",
+      winningMoves: ["rock", "scissors"],
+      otherMoves: ["lizard", "spock", "paper"], // draw + loses
+    }),
+  ];
+  let number = Math.floor(Math.random() * 30);
+  for (let i = 0; i < plays.length; i++) {
+    if (playerMove === plays[i].moveName)
+      if (number > 2 && number < 30) {
+        // 27/30 chances to win = 90%
+        let randomIndex = Math.floor(
+          Math.random() * plays[i].winningMoves.length
+        );
+        return plays[i].winningMoves[randomIndex];
+      } else {
+        let randomIndex = Math.floor(
+          Math.random() * plays[i].otherMoves.length
+        );
+        return plays[i].otherMoves[randomIndex];
+      }
+  }
+}
