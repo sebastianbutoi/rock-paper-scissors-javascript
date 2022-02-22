@@ -129,10 +129,10 @@ function getComputerMoveNinety(playerMove) {
 // This function will get the player's name
 function getName() {
   let username;
-    let charArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i" ,"j" ,"k" ,"l" ,"m" ,"n" ,"o",
-    "p", "q", "r", "s", "t" ,"u" ,"v" ,"w" ,"x" ,"y" ,"z",
-    "A", "B", "C", "D", "E", "F", "G", "H", "I" ,"J" ,"K" ,"L" ,"M" ,"N" ,"O",
-    "P", "Q", "R", "S", "T" ,"U" ,"V" ,"W" ,"X" ,"Y" ,"Z"];
+  let charArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i" ,"j" ,"k" ,"l" ,"m" ,"n" ,"o",
+  "p", "q", "r", "s", "t" ,"u" ,"v" ,"w" ,"x" ,"y" ,"z",
+  "A", "B", "C", "D", "E", "F", "G", "H", "I" ,"J" ,"K" ,"L" ,"M" ,"N" ,"O",
+  "P", "Q", "R", "S", "T" ,"U" ,"V" ,"W" ,"X" ,"Y" ,"Z"];
 
   let isNotValid;
   do {
@@ -224,5 +224,26 @@ function getWinner(playerMove, computerMove) {
         case "paper":
           return computerWin;
       }
+  }
+}
+
+// This function will print the two choices and the winner
+function printWinner(number, playerMove, computerMove, name) {
+  switch (number) {
+    case 1:
+      alert(
+        `${name} chose ${playerMove}, and computer chose ${computerMove} - ${name} won!`
+      );
+      break;
+    case 0:
+      alert(
+        `${name} chose ${playerMove}, and computer chose ${computerMove} - it's a draw!`
+      );
+      break;
+    case -1:
+      alert(
+        `${name} chose ${playerMove}, and computer chose ${computerMove} - computer won!`
+      );
+      break;
   }
 }
