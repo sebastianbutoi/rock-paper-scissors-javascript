@@ -125,3 +125,36 @@ function getComputerMoveNinety(playerMove) {
       }
   }
 }
+
+// This function will get the player's name
+function getName() {
+  let username;
+  let charArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i" ,"j" ,"k" ,"l" ,"m" ,"n" ,"o",
+  "p", "q", "r", "s", "t" ,"u" ,"v" ,"w" ,"x" ,"y" ,"z", 
+  "A", "B", "C", "D", "E", "F", "G", "H", "I" ,"J" ,"K" ,"L" ,"M" ,"N" ,"O",
+  "P", "Q", "R", "S", "T" ,"U" ,"V" ,"W" ,"X" ,"Y" ,"Z"];
+  
+  let isNotValid;
+  do {
+    isNotValid = true;
+    username = prompt("Please type your name:");
+
+    // If the Player's name is longer than 10 characters show him an alert
+    if (username.length > 10) {
+      alert("Your username is too long try again! (Max. 10 characteres)");
+    }
+
+    // Check if the first letter is a number or a symbol
+    for (let index = 0; index < charArray.length; index++) {
+      if (username.charAt(0) === charArray[index]) isNotValid = false;
+    }
+    // If the first letter is not valid then print a message
+    if (isNotValid) alert("First character must be a letter");
+  } while (username.length > 10 || isNotValid);
+
+  // Return the username with only the first letter in capital
+  return (
+    username.charAt(0).toUpperCase() +
+    username.substring(1, username.length).toLowerCase()
+  );
+}
