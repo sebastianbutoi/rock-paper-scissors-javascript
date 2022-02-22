@@ -1,3 +1,43 @@
+function startGame() {
+  // Get the name of the player and print a welcome message
+  let username = getName();
+  alert(`Welcome ${username}!`);
+
+  let playerMove;
+  let computerMove;
+  let winner;
+  let confirm = true;
+  // Store the score history into an object
+  let scoreboard = {
+    playerScore: 0,
+    computerScore: 0,
+    drawScore: 0,
+  };
+
+  // Choose the game mode (normal or impossible)
+  let gameMode = getGameMode();
+
+  while (confirm) {
+    // Get the player move
+    playerMove = getPlayerMove();
+
+    // Generate a move for the computer based on the game mode
+    if (gameMode === "1") computerMove = getComputerMove();
+    else computerMove = getComputerMoveNinety(playerMove);
+
+    // Check the winner and then update the scoreboard
+    winner = getWinner(playerMove, computerMove);
+    scoreboard = updateScoreboard(scoreboard, winner);
+
+    // Print the winner and the score
+    printWinner(winner, playerMove, computerMove, username);
+    printScore(scoreboard, username);
+
+    // Ask the player if he wants to keep playing
+    confirm = getConfirmation();
+  }
+}
+
 function getGameMode() {
   let choice;
   while (true) {
@@ -129,10 +169,10 @@ function getComputerMoveNinety(playerMove) {
 // This function will get the player's name
 function getName() {
   let username;
-  let charArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i" ,"j" ,"k" ,"l" ,"m" ,"n" ,"o",
-  "p", "q", "r", "s", "t" ,"u" ,"v" ,"w" ,"x" ,"y" ,"z",
-  "A", "B", "C", "D", "E", "F", "G", "H", "I" ,"J" ,"K" ,"L" ,"M" ,"N" ,"O",
-  "P", "Q", "R", "S", "T" ,"U" ,"V" ,"W" ,"X" ,"Y" ,"Z"];
+    let charArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i" ,"j" ,"k" ,"l" ,"m" ,"n" ,"o",
+    "p", "q", "r", "s", "t" ,"u" ,"v" ,"w" ,"x" ,"y" ,"z",
+    "A", "B", "C", "D", "E", "F", "G", "H", "I" ,"J" ,"K" ,"L" ,"M" ,"N" ,"O",
+    "P", "Q", "R", "S", "T" ,"U" ,"V" ,"W" ,"X" ,"Y" ,"Z"];
 
   let isNotValid;
   do {
@@ -250,11 +290,11 @@ function printWinner(number, playerMove, computerMove, name) {
 
 // This function will print the score
 function printScore(scoreboard, name) {
-    alert(`----- SCOREBOARD -----
+  alert(`----- SCOREBOARD -----
     ${name}: ${scoreboard.playerScore}.
     Computer: ${scoreboard.computerScore}.
     Draws: ${scoreboard.drawScore}.
-    `)
+    `);
 }
 
 // Initialize the game
