@@ -129,11 +129,11 @@ function getComputerMoveNinety(playerMove) {
 // This function will get the player's name
 function getName() {
   let username;
-  let charArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i" ,"j" ,"k" ,"l" ,"m" ,"n" ,"o",
-  "p", "q", "r", "s", "t" ,"u" ,"v" ,"w" ,"x" ,"y" ,"z", 
-  "A", "B", "C", "D", "E", "F", "G", "H", "I" ,"J" ,"K" ,"L" ,"M" ,"N" ,"O",
-  "P", "Q", "R", "S", "T" ,"U" ,"V" ,"W" ,"X" ,"Y" ,"Z"];
-  
+    let charArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i" ,"j" ,"k" ,"l" ,"m" ,"n" ,"o",
+    "p", "q", "r", "s", "t" ,"u" ,"v" ,"w" ,"x" ,"y" ,"z",
+    "A", "B", "C", "D", "E", "F", "G", "H", "I" ,"J" ,"K" ,"L" ,"M" ,"N" ,"O",
+    "P", "Q", "R", "S", "T" ,"U" ,"V" ,"W" ,"X" ,"Y" ,"Z"];
+
   let isNotValid;
   do {
     isNotValid = true;
@@ -157,4 +157,72 @@ function getName() {
     username.charAt(0).toUpperCase() +
     username.substring(1, username.length).toLowerCase()
   );
+}
+
+// This function will check who is the winner
+function getWinner(playerMove, computerMove) {
+  let playerWin = 1;
+  let computerWin = -1;
+  let draw = 0;
+
+  if (playerMove === computerMove) {
+    return draw;
+  }
+  switch (playerMove) {
+    case "rock":
+      switch (computerMove) {
+        case "spock":
+          return computerWin;
+        case "lizard":
+          return playerWin;
+        case "scissors":
+          return playerWin;
+        case "paper":
+          return computerWin;
+      }
+    case "scissors":
+      switch (computerMove) {
+        case "spock":
+          return computerWin;
+        case "lizard":
+          return playerWin;
+        case "rock":
+          return computerWin;
+        case "paper":
+          return playerWin;
+      }
+    case "paper":
+      switch (computerMove) {
+        case "spock":
+          return playerWin;
+        case "lizard":
+          return computerWin;
+        case "scissors":
+          return computerWin;
+        case "rock":
+          return playerWin;
+      }
+    case "lizard":
+      switch (computerMove) {
+        case "spock":
+          return playerWin;
+        case "rock":
+          return computerWin;
+        case "scissors":
+          return computerWin;
+        case "papger":
+          return playerWin;
+      }
+    case "spock":
+      switch (computerMove) {
+        case "rock":
+          return playerWin;
+        case "lizard":
+          return computerWin;
+        case "scissors":
+          return playerWin;
+        case "paper":
+          return computerWin;
+      }
+  }
 }
