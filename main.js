@@ -25,3 +25,14 @@ function updateScoreboard(scoreboard, winner) {
   }
   return scoreboard;
 }
+
+// This function will ask the player if he wants to keep playing
+// If the player will insert something different than 'y' then the game will stop
+function getConfirmation() {
+  let confirmation = prompt("Press Y to play again or anything else to exit:");
+  confirmation = confirmation.toLowerCase();
+  if (confirmation !== "y") {
+    alert("Thank you for playing!");
+    return false;
+  } else return true;
+}
