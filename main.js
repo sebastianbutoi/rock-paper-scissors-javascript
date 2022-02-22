@@ -59,3 +59,20 @@ function getPlayerMove() {
       );
   }
 }
+
+// Generate a choice for the computer
+function getComputerMove() {
+  number = Math.floor(Math.random() * 5);
+  switch (number) {
+    case 0:
+      return "rock";
+    case 1:
+      return "paper";
+    case 2:
+      return "scissors";
+    case 3:
+      return "spock";
+    case 4:
+      return "lizard";
+  }
+}
