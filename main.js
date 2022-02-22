@@ -36,3 +36,26 @@ function getConfirmation() {
     return false;
   } else return true;
 }
+
+// Take input from the user and check for errors
+function getPlayerMove() {
+  while (true) {
+    let playerMove = prompt(
+      "Choose between Rock, Paper, Scissors, Spock, or Lizard"
+    );
+    playerMove = playerMove.toLowerCase();
+    // Check if the input is right, otherwise keep asking
+    if (
+      playerMove === "rock" ||
+      playerMove === "paper" ||
+      playerMove === "scissors" ||
+      playerMove === "spock" ||
+      playerMove === "lizard"
+    )
+      return playerMove;
+    else
+      alert(
+        "Wrong input - Please insert rock, paper, scissors, spock or lizard."
+      );
+  }
+}
