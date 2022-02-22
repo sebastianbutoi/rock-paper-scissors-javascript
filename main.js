@@ -247,3 +247,15 @@ function printWinner(number, playerMove, computerMove, name) {
       break;
   }
 }
+
+// This function will print the score
+function printScore(scoreboard, name) {
+    alert(`----- SCOREBOARD -----
+    ${name}: ${scoreboard.playerScore}.
+    Computer: ${scoreboard.computerScore}.
+    Draws: ${scoreboard.drawScore}.
+    `)
+}
+
+// Initialize the game
+startGame();
